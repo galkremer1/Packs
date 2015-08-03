@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Glass:</strong>
+  <%= @product.glass %>
+</p>
+
+<p>
+  <strong>Cardboard paper:</strong>
+  <%= @product.cardboard_paper %>
+</p>
+
+<p>
+  <strong>Drink cardboard:</strong>
+  <%= @product.drink_cardboard %>
+</p>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @product.PET %>
+</p>
+
+<p>
+  <strong>Hdpe:</strong>
+  <%= @product.HDPE %>
+</p>
+
+<p>
+  <strong>Ldpe:</strong>
+  <%= @product.LDPE %>
+</p>
+
+<p>
+  <strong>Pp:</strong>
+  <%= @product.PP %>
+</p>
+
+<p>
+  <strong>Ps:</strong>
+  <%= @product.PS %>
+</p>
+
+<p>
+  <strong>Other plastic:</strong>
+  <%= @product.other_plastic %>
+</p>
+
+<p>
+  <strong>Steel:</strong>
+  <%= @product.steel %>
+</p>
+
+<p>
+  <strong>Wood:</strong>
+  <%= @product.wood %>
+</p>
+
+<p>
+  <strong>Other meterials:</strong>
+  <%= @product.other_meterials %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

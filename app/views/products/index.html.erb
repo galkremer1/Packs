@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Glass</th>
+      <th>Cardboard paper</th>
+      <th>Drink cardboard</th>
+      <th>Pet</th>
+      <th>Hdpe</th>
+      <th>Ldpe</th>
+      <th>Pp</th>
+      <th>Ps</th>
+      <th>Other plastic</th>
+      <th>Steel</th>
+      <th>Wood</th>
+      <th>Other meterials</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.glass %></td>
+        <td><%= product.cardboard_paper %></td>
+        <td><%= product.drink_cardboard %></td>
+        <td><%= product.PET %></td>
+        <td><%= product.HDPE %></td>
+        <td><%= product.LDPE %></td>
+        <td><%= product.PP %></td>
+        <td><%= product.PS %></td>
+        <td><%= product.other_plastic %></td>
+        <td><%= product.steel %></td>
+        <td><%= product.wood %></td>
+        <td><%= product.other_meterials %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

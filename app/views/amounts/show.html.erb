@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @amount.product %>
+</p>
+
+<p>
+  <strong>Amounts:</strong>
+  <%= @amount.amounts %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @amount.month %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @amount.year %>
+</p>
+
+<%= link_to 'Edit', edit_amount_path(@amount) %> |
+<%= link_to 'Back', amounts_path %>

@@ -1,0 +1,39 @@
+<% count = Product.count %>
+<% name_array = Array.new %>
+<% count.times do |i| %>
+
+  <% name_array.push(Product.all[i].name) %>
+<% end %>
+
+<%= form_for(@amount) do |f| %>
+  <% if @amount.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@amount.errors.count, "error") %> prohibited this amount from being saved:</h2>
+
+      <ul>
+      <% @amount.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :product %><br>
+    <%= f.select :product, name_array %>
+  </div>
+  <div class="field">
+    <%= f.label :amounts %><br>
+    <%= f.text_field :amounts %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br>
+    <%= f.select :month, ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,69 @@
+<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :glass %><br>
+    <%= f.text_field :glass %>
+  </div>
+  <div class="field">
+    <%= f.label :cardboard_paper %><br>
+    <%= f.text_field :cardboard_paper %>
+  </div>
+  <div class="field">
+    <%= f.label :drink_cardboard %><br>
+    <%= f.text_field :drink_cardboard %>
+  </div>
+  <div class="field">
+    <%= f.label :PET %><br>
+    <%= f.text_field :PET %>
+  </div>
+  <div class="field">
+    <%= f.label :HDPE %><br>
+    <%= f.text_field :HDPE %>
+  </div>
+  <div class="field">
+    <%= f.label :LDPE %><br>
+    <%= f.text_field :LDPE %>
+  </div>
+  <div class="field">
+    <%= f.label :PP %><br>
+    <%= f.text_field :PP %>
+  </div>
+  <div class="field">
+    <%= f.label :PS %><br>
+    <%= f.text_field :PS %>
+  </div>
+  <div class="field">
+    <%= f.label :other_plastic %><br>
+    <%= f.text_field :other_plastic %>
+  </div>
+  <div class="field">
+    <%= f.label :steel %><br>
+    <%= f.text_field :steel %>
+  </div>
+  <div class="field">
+    <%= f.label :wood %><br>
+    <%= f.text_field :wood %>
+  </div>
+  <div class="field">
+    <%= f.label :other_meterials %><br>
+    <%= f.text_field :other_meterials %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
