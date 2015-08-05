@@ -1,0 +1,197 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start month:</strong>
+  <%= @report.Start_month %>
+</p>
+
+<p>
+  <strong>Start year:</strong>
+  <%= @report.Start_year %>
+</p>
+
+<p>
+  <strong>End month:</strong>
+  <%= @report.End_month %>
+</p>
+
+<p>
+  <strong>End year:</strong>
+  <%= @report.End_year %>
+</p>
+
+<%if @report.Start_month == "January" %>
+	<% smonth = 1 %>
+<% elsif @report.Start_month == "February" %>
+	<% smonth = 2 %>
+<% elsif @report.Start_month == "March" %>
+	<% smonth = 3 %>
+<% elsif @report.Start_month == "April" %>
+	<% smonth = 4 %>
+<% elsif @report.Start_month == "May" %>
+	<% smonth = 5 %>
+<% elsif @report.Start_month == "June" %>
+	<% smonth = 6 %>
+<% elsif @report.Start_month == "July" %>
+	<% smonth = 7 %>
+<% elsif @report.Start_month == "August" %>
+	<% smonth = 8 %>
+<% elsif @report.Start_month == "September" %>
+	<% smonth = 9 %>
+<% elsif @report.Start_month == "October" %>
+	<% smonth = 10 %>
+<% elsif @report.Start_month == "November" %>
+	<% smonth = 11 %>
+<% elsif @report.Start_month == "December" %>
+	<% smonth = 12 %>
+<% end %>
+
+<%if @report.End_month == "January" %>
+	<% emonth = 1 %>
+<% elsif @report.End_month == "February" %>
+	<% emonth = 2 %>
+<% elsif @report.End_month == "March" %>
+	<% emonth = 3 %>
+<% elsif @report.End_month == "April" %>
+	<% emonth = 4 %>
+<% elsif @report.End_month == "May" %>
+	<% emonth = 5 %>
+<% elsif @report.End_month == "June" %>
+	<% emonth = 6 %>
+<% elsif @report.End_month == "July" %>
+	<% emonth = 7 %>
+<% elsif @report.End_month == "August" %>
+	<% emonth = 8 %>
+<% elsif @report.End_month == "September" %>
+	<% emonth = 9 %>
+<% elsif @report.End_month == "October" %>
+	<% emonth = 10 %>
+<% elsif @report.End_month == "November" %>
+	<% emonth = 11 %>
+<% elsif @report.End_month == "December" %>
+	<% emonth = 12 %>
+<% end %>
+
+<% months_list = ['January', 'February', 'March', 'April','May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+
+<% tglass = 0 %>
+<% tcardboard_paper = 0 %>
+<% tdrink_cardboard = 0 %>
+<% tPET = 0 %>
+<% tHDPE = 0 %>
+<% tLDPE = 0 %>
+<% tPP = 0 %>
+<% tPS = 0 %>
+<% tother_plastic = 0 %>
+<% tsteel = 0 %>
+<% twood = 0 %>
+<% tother_meterials = 0 %>
+
+
+
+
+
+<% acount = Amount.count %>
+<% pcount = Product.count %>
+
+<% if ((emonth >= smonth) and (@report.End_year >= @report.Start_year)) %>
+	<% (emonth-smonth +1).times do |i| %>
+			<% acount.times do |j| %>
+				<% if Amount.all[j].month == months_list[smonth+i-1] %>
+
+					<% tglass += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).glass) %>
+
+					<% tcardboard_paper += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).cardboard_paper) %>
+
+					<% tdrink_cardboard += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).drink_cardboard) %>
+
+					<% tPET += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).PET) %>
+
+					<% tHDPE += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).HDPE) %>
+
+					<% tLDPE += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).LDPE) %>
+
+					<% tPP += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).PP) %>
+
+					<% tPS += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).PS) %>
+
+					<% tother_plastic += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).other_plastic) %>
+
+					<% tsteel += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).steel) %>
+
+					<% twood += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).wood) %>
+
+					<% tother_meterials += Amount.all[j].amounts *
+					((Product.find_by name: Amount.all[j].product).other_meterials) %>
+				<% end %>
+			<% end %>
+
+	<% end %>
+	Total glass:
+	<%= tglass %>
+	<BR>
+	Total Cardboard paper:
+	<%= tcardboard_paper %>
+	<BR>
+	Total Drink cardboard:
+	<%= tdrink_cardboard %>
+	<BR>
+	Total PET:
+	<%= tPET %>
+	<BR>
+	Total HDPE:
+	<%= tHDPE %>
+	<BR>
+	Total LDPE:
+	<%= tLDPE %>
+	<BR>
+	Total PP:
+	<%= tPP %>
+	<BR>
+	Total PS:
+	<%= tPS %>
+	<BR>
+	Total other plastic:
+	<%= tother_plastic %>
+	<BR>
+	Total steel:
+	<%= tsteel %>
+	<BR>
+	Total wood:
+	<%= twood %>
+	<BR>
+	Total other meterials:
+	<%= tother_meterials %>
+	<BR>
+
+
+<% elsif ((emonth < smonth) and (@report.End_year > @report.Start_year)) %>
+
+<% acount.times do |i| %>
+
+<%= Product.all[i].glass %>
+<BR>
+ <% end %>
+
+<% else %>
+	<%= "Eror in report period" %>
+<% end %>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'Back', reports_path %>
