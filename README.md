@@ -10,7 +10,7 @@ and type of litter you have to pay for.
 
 ```sh
 # Clone this repository
-$ git clone https://github.com/galkremer1/karoke.git
+$ git clone https://github.com/galkremer1/packs.git
 
 # Head to the cloned library on your terminal and run 
 #gem install
